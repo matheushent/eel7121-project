@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "eel7121"
+version = "0.1.0"
+description = "Final project for the EEL7121 class"
+authors = ["Matheus Tosta <me@mtosta.dev>"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+adafruit-ampy = "^1.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+micropython-rp2-stubs = "1.21.*"
+ruff = "^0.1.6"
+black = "^23.11.0"
+isort = "^5.12.0"
+mypy = "^1.7.1"
+
+[tool.black]
+line-length = 100
+src = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+line_length = 100
+src_paths = ["src"]
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.mypy]
+follow_imports = "silent"
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+check_untyped_defs = true
+no_implicit_reexport = true
+ignore_missing_imports = true
+
+# for strict mypy: (this is the tricky one :-))
+disallow_untyped_defs = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
